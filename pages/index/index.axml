@@ -1,0 +1,115 @@
+<view class="container">
+  <form class="form-container">
+    <label class="form-label">
+      Nombre:
+      <input
+        class="form-input"
+        type="text"
+        name="nombre"
+        placeholder="Ingrese su nombre"
+        required
+      />
+    </label>
+    <label class="form-label">
+      Contraseña:
+      <input
+        class="form-input"
+        type="password"
+        name="contraseña"
+        placeholder="Ingrese su contraseña"
+        minlength="4"
+        maxlength="4"
+        required
+      />
+    </label>
+
+    <label class="form-label">
+      Sexo:
+      <radio-group class="radio-group" onChange="radioChange" name="lib">
+        <label a:for="{{sexo}}" class="radio" key="label-{{index}}">
+          <radio
+            class="radio-input"
+            value="{{sexo.name}}"
+            checked="{{sexo.checked}}"
+            disabled="{{sexo.disabled}}"
+          />
+          <text class="radio-text">{{item.value}}</text>
+        </label>
+      </radio-group>
+    </label>
+
+    <label class="form-label">
+      Países Visitados:
+      <checkbox-group onChange="onChange" name="libs">
+        <label a:for="{{paises}}" class="checkbox" key="label-{{index}}">
+          <checkbox
+            class="checkbox-input"
+            value="{{paises.name}}"
+            checked="{{paises.checked}}"
+            disabled="{{paises.disabled}}"
+          />
+          <text class="checkbox-text">{{item.value}}</text>
+        </label>
+      </checkbox-group>
+    </label>
+
+    <label class="form-label">
+      Altura:
+      <slider
+        class="form-slider"
+        name="altura"
+        min="0"
+        max="2.3"
+        step="0.1"
+        required
+        show-value
+      />
+    </label>
+
+    <label class="form-label">
+      Peso:
+      <slider
+        class="form-slider"
+        name="peso"
+        min="0"
+        max="150"
+        step="1"
+        required
+        show-value
+      />
+    </label>
+
+    <picker
+      class="form-picker"
+      onChange="bindObjPickerChange"
+      value="{{arrIndex}}"
+      range="{{objectArray}}"
+      range-key="name"
+    >
+      <view class="picker-row">
+        <view class="picker-row-title">País Origen</view>
+        <view class="picker-row-extra">País: {{objectArray[arrIndex].name}}</view>
+        <image class="picker-row-arrow" src="/image/arrowright.png" mode="aspectFill" />
+      </view>
+    </picker>
+
+    <label class="form-label">
+      Descripción de carrera:
+      <textarea
+        class="form-textarea"
+        name="description"
+        placeholder="Ingrese su descripción"
+        rows="3"
+      >
+      </textarea>
+    </label>
+
+    <label class="form-label">
+      Recibir anuncios por correo:
+      <switch class="form-switch" name="recibir_anuncios" />
+    </label>
+
+    <button class="form-button" size="default" type="submit">Enviar</button>
+    <button class="form-button" size="default" type="reset">Limpiar</button>
+  </form>
+</view>
